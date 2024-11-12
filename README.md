@@ -12,13 +12,13 @@ Manipulasi string, Ekspresi reguler
 ## 4. Events:
 • ActionListener untuk tombol Hitung
 ~~~
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
        jButton1.addActionListener((ActionEvent e) -> {
         hitungText(); // Memanggil metode countText() ketika tombol ditekan
     });
     }
 
-     private void hitungText() {
+ private void hitungText() {
         String text = jTextArea1.getText();
 
         // Hitung jumlah kata
@@ -43,6 +43,12 @@ Manipulasi string, Ekspresi reguler
 ~~~
 • DocumentListener pada JTextArea untuk menghitung secara real-time
  ~~~
+  jTextArea1.getDocument().addDocumentListener(new DocumentListener() {
+    public void changedUpdate(DocumentEvent e) { hitungText(); }
+    public void removeUpdate(DocumentEvent e) { hitungText(); }
+    public void insertUpdate(DocumentEvent e) { hitungText(); }
+});
+    }
   
  ~~~
 5. Variasi:
